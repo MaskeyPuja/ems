@@ -14,7 +14,9 @@ def registerView(request):
 	if request.method == "POST":
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
+			print('hello')
 			form.save()
+
 			return redirect('login_url')
 	else:
 		form = UserCreationForm()	
