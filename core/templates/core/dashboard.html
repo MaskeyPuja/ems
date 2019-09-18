@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Dashboard</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="la la-home"></i> Practical</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="la la-navicon"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">                
+                <button class="btn btn-primary float-right right_icon_toggle_btn" type="button"><i class="la la-arrow-right"></i></button>
+                <a class="btn btn-create float-right" type="button" href=""><i class="la la-plus"> create project</i></a>
+            </div>
+        </div>
+    </div>
+    <div class="dash-top">
+        <div class="container-fluid">
+            <div class="row clearfix">
+            	
+				<h1>Welcome {{ user.username }} </h1>
+
+				<div class="menu">
+					<ul class="list">
+<!-- 						<button><a align='right' href="{% url 'profile_list' %}">Profile</a></button>
+
+						<div class="col-lg-5 col-md-6 col-sm-12">                
+		                	<button class="btn btn-primary float-right right_icon_toggle_btn" type="button"><i class="la la-arrow-right"></i></button>
+		                	<a class="btn btn-create float-right" type="button" href=""><i class="la la-plus"> Profile </i></a>
+	            		</div> -->
+					</ul>
+				</div>
+					
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 class Profile(models.Model):
 	USER = (
-		('C', 'Coordinator'),
-		('T', 'Tasker'),
+		('Coordinator', 'Coordinator'),
+		('Tasker', 'Tasker'),
 	)
-	user = models.CharField(max_length=2, choices=USER)
+	user = models.CharField(max_length=15, choices=USER)
 	name = models.CharField(max_length=50)
 	address = models.CharField(max_length=150)
 
