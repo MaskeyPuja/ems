@@ -1,15 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.views.generic import DetailView, CreateView, ListView, UpdateView
-# from django.core.urlresolvers import reverse
-# from django.utils.functional import lazy
+from django.views.generic import DeleteView, CreateView, ListView, UpdateView
 
 from django.urls import reverse_lazy, reverse
 
 
-from .models import Profile
-from .form import ProfileForm
+from .models import Profile, Task
+from .form import ProfileForm, TaskForm
 # Create your views here.
 
 def indexView(request):
@@ -53,3 +51,28 @@ class ProfileUpdateView(UpdateView):
 
 	success_url = reverse_lazy('profile_list')
 
+class TaskListView(ListView):
+	model = Task
+	template_name = 'core/task-list.html'
+
+
+class TaskCreateView(CreateView):
+	model = Task
+	form_class = TaskForm
+	template_name = 'core/task-form.html'
+
+	success_url = reverse_lazy('task_list')
+
+
+class TaskUpdateView(UpdateView):
+	model = Task
+	form_class = TaskForm
+	template_name = 'core/task-form.html'
+
+	success_url = reverse_lazy('task_list')
+
+
+class TaskDeleteView(DeleteView):
+	model = Task
+	template_name = 'core/task-delete.html'
+	success_url = reverse_lazy('task_list')
