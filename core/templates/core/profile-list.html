@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="content">
+    <div class="formHolder">
+        <div class="widget-info margin-top-large">
+            <div class="widget-head">
+                <div class="widget-body mt-2 horizontalForm">
+                    <div class="widget-head">
+                        <h4><a href="#" title="">List of employee</a></h4>
+                    </div>
+                        <table class="table table-hover c_table theme-color">
+                            <thead>
+                                <tr> 
+                                    <th>User</th>
+                                    <th>Name</th>                                        
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for profile in object_list %}
+                                <tr>
+                                   <td>{{ profile.user }}</td>
+                                   <td>{{ profile.name }}</td>
+                                   <td>{{ profile.address }}</td>
+                                   <td class="table-action">
+                                        <a href="{% url 'profile_update' profile.pk %}" class="btn"> <i class="la la-edit"></i> Update</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <a href="{% url 'profile_create' %}" class="btn remove"> <i class="la la-plus-o"></i> Create</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
